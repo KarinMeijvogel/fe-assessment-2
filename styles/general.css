@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(247, 247, 247);
+    font-size: 16px;
+    font-family: 'Gotham Pro light', sans-serif;
+    line-height: 1.45em;
+    color: #7e7d81;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gotham Pro', sans-serif;
+    line-height: 2em;
+    color: #4d4d4d;
+}
+
+h2 {
+    font-size: 1.05em;
+}
+
+a, a:active, a:visited {
+    text-decoration: none;
+    color: rgb(177, 177, 177);
+}
+
+a:hover {
+    color: #1CA7EC;
+}
+
+img {
+    width: 100%;
+}
