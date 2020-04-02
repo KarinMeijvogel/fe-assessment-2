@@ -81,14 +81,6 @@ main > button:first-of-type {
     transform: translateX(calc(-100% - 5px));
 }
 
-.fa-heart {
-    color: #FF9699;
-}
-
-.fa-times {
-    color: #797EF6;
-}
-
 /* desktop */
 @media only screen and (min-width: 900px) {
     body {

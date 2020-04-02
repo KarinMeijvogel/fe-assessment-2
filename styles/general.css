@@ -18,6 +18,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #4d4d4d;
 }
 
+h1 {
+    font-size: 1.5em;
+}
+
 h2 {
     font-size: 1.05em;
 }
@@ -31,6 +35,24 @@ a:hover {
     color: #1CA7EC;
 }
 
+button {
+    outline: none;
+    border: none;
+    background: #FFFFFF;
+}
+
 img {
     width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+.fa-heart {
+    color: #FF9699;
+}
+
+.fa-times {
+    color: #797EF6;
 }
