@@ -1,0 +1,22 @@
+{
+  "name": "frontend2",
+  "version": "1.0.0",
+  "description": "Front end for dating app, CMDA block tech 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarinMeijvogel/frontend2.git"
+  },
+  "keywords": [
+    "frontend"
+  ],
+  "author": "karinmeijvogel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KarinMeijvogel/frontend2/issues"
+  },
+  "homepage": "https://github.com/KarinMeijvogel/frontend2#readme"
+}
