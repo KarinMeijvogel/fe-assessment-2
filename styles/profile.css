@@ -6,6 +6,7 @@ main {
     padding: 25px;
 }
 
+/* photo */
 main > img:first-child {
     margin: -25px -25px -15px;
     width: calc(100% + 25*2px); /* 100% + main padding */
@@ -13,6 +14,7 @@ main > img:first-child {
     object-fit: cover;
 }
 
+/* info and desc */
 main > section {
     padding: 30px 0;
     border-bottom: 1px solid #e0e0e0;
@@ -85,4 +87,47 @@ main > button:first-of-type {
 
 .fa-times {
     color: #797EF6;
+}
+
+/* desktop */
+@media only screen and (min-width: 900px) {
+    body {
+        padding: 20px;
+    }
+    main {
+        max-width: 1150px;
+        width: calc(100% - 400px - 35px);
+        margin: 10% 400px;
+        position: relative;
+        padding: 0 25px;
+        box-shadow: 0 5px 15px 2px #d6d6d6;
+    }
+
+    /* photo */
+    main > img:first-child {
+        position: absolute;
+        margin: 0;
+        transform: translateX(calc(-100% - 45px));
+        top: 0;
+        width: 350px;
+        height: 100%;
+    }
+
+    /* back button */
+    main > a:first-of-type {
+    left: -370px;
+    top: -35px;
+    color: #FF9699;
+    }
+
+    main > ul {
+        padding-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    main {
+        width: calc(100% - 30% - 35px);
+        margin: 10% auto auto 30%;
+    }
 }
