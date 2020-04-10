@@ -1,57 +1,82 @@
+// default userdata
+class Person{
+    constructor(firstName, lastName, age, id, photo, msg, liked, likedMe) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.id = id;
+        this.photo = photo;
+        this.msg = msg;
+        this.liked = liked;
+        this.likedMe = likedMe; // true, false or null (not liked or disliked yet)
+    }
+}
+
+let Olivia = new Person('Olivia', 'Delroy', '24', '001', 'girl.jpeg', `I love all of the bands in your...`, true, true);
+let Kayla = new Person('Kayla', 'Solomon', '25', '002', 'girl1.jpeg', `What's up :-)`, true, null);
+let Nadia = new Person('Nadia', 'Williams', '23', '003', 'girl2.jpeg', `lol ikr`, null, true);
+let Eve = new Person('Eve', 'Johnson', '24', '004', 'girl3.jpeg', `Are you going to DLDK this year?`, true, null);
+let Abby = new Person('Abby', 'Watts', '25', '005', 'girl4.jpeg', `Yeah, saw them live 3 weeks ago.`, null, false);
+let defaultData = [Olivia, Kayla, Nadia, Eve, Abby];
+
+// store default userdata in localStorage:
+localStorage.setItem('data', JSON.stringify(defaultData));
+
+// get myLikes from localStorage, divide them in matching and pending
+let data = JSON.parse(localStorage.data);
+
+let myLikes = JSON.parse(localStorage.data).filter(person => {
+    return person.liked == true && person.likedMe !== false;
+});
+
+let matches = JSON.parse(localStorage.data).filter(person => {
+    return person.liked == true && person.likedMe == true;
+});
+
+let pending = JSON.parse(localStorage.data).filter(person => {
+    return person.liked == true && person.likedMe == null;
+});
+
 // html page elements
-let deleteButtons = document.getElementsByTagName('button');
-const footerText = document.getElementsByTagName('footer')[0].getElementsByTagName('p')[0];
 const main = document.getElementsByTagName('main')[0];
-const sections = main.getElementsByTagName('section');
-let matchedItems = sections[0].getElementsByTagName('li');
-let pendingItems = sections[1].getElementsByTagName('li');
-
-// if likedlist is empty, tell the user it is
-if (pendingItems.length + matchedItems === 0) {
-    footerText.textContent = `You haven't liked anyone yet.`
-}
-
-// make removebutton invisible when javascript is active 
-for (let i = 0; i < deleteButtons.length; i++){ 
-    deleteButtons[i].classList.add('invisible');
-}
+const footerText = document.getElementsByTagName('footer')[0].getElementsByTagName('p')[0];
+const chatList = document.getElementsByTagName('ul')[0];
+const clItems = [];
 
 // when user clicks on someone's photo, this person gets deleted from the liked list
-function removeChat(event) {
-    surroundingUl = this.closest('ul');
-    closestHeading = surroundingUl.parentNode.getElementsByTagName('h2')[0];
+function disLike(e) {
+    // update the currentData
+    const currentData = JSON.parse(localStorage.data);
+    const clickedUser = currentData.find(person => {
+        return person.firstName == e.target.id;
+    });
     
-    this.closest('li').remove();
+    clickedUser.liked = false;
 
-    if (surroundingUl.children.length === 0) {
-        closestHeading.remove();
-    }
-    
-    let node = event.target;
-    let id = node.dataset.id;
-
-    let res = new XMLHttpRequest();
-    res.open('DELETE', '/' + id);
-    res.onload = onload;
-    res.send();
-
-    function onload() {
-        if (res.status !== 200) {
-            throw new Error('Could not delete!');
-        }
-
-        window.location = '/';
-
-    }
-// als js niet werkt, via html 'post' request form met een 'delete' value -> alsnog verwijderen
+    // put the updated currentData in localStorage
+    localStorage.setItem('data', JSON.stringify(currentData));
+    location.reload();
 }
 
 // for every liked person...
-for (let i = 0; i < (matchedItems.length + pendingItems.length); i++) {
-    
-    // give every chat the right details
-    const photo = main.getElementsByTagName('img')[i];
+for (let i = 0; i < myLikes.length; i++) {
 
-    // make every profile picture clickable (and execute removeChat function)
-    photo.addEventListener('click', removeChat)
+// make a list item and put it in the 'clItems' array
+    clItems.push(document.createElement('li'));
+    clItems[i].innerHTML = '<figure><img id="' + myLikes[i].firstName + '" src="" alt="profilepicture"><figcaption><h4>Username</h4><p>Message</p></figcaption></figure>'
+   
+// add the elements in the 'clItems' array to the HTML's actual chatlist
+    chatList.appendChild(clItems[i]);
+
+// give every chat the right details
+    const photo = clItems[i].getElementsByTagName('img')[0];
+    const name = clItems[i].getElementsByTagName('h4')[0];
+    const msg = clItems[i].getElementsByTagName('p')[0];
+    
+    photo.src = "images/" + myLikes[i].photo;
+    name.textContent = myLikes[i].firstName + ' ' + myLikes[i].lastName;
+    msg.textContent = myLikes[i].msg;
+
+// make every profile picture clickable (it removes the person from the liked list)
+    photo.addEventListener('click', disLike)
 }
