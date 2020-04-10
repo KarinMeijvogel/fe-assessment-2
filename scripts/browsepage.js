@@ -17,7 +17,7 @@ for (let i = 0; i < unratedPeople.length; i++) {
 
     // make a list item and put it in the 'peopleListItems' array
     peopleListItems.push(document.createElement('li'));
-    peopleListItems[i].innerHTML = '<figure><a href="profile-' + unratedPeople[i].firstName + '.html"><img src="" alt="profilepicture"></a><figcaption id="' + unratedPeople[i].firstName + '" ><h2>Name</h2><p>Student in New York</p><button class="likebutton" type="button"><i class="fa fa-heart"></i></button><button class="dislikebutton" type="button"><i class="fa fa-times"></i></button></figcaption></figure>'
+    peopleListItems[i].innerHTML = '<figure><a href="profile-' + unratedPeople[i].firstName.toLowerCase() + '.html"><img src="" alt="profilepicture"></a><figcaption id="' + unratedPeople[i].firstName + '" ><h2>Name</h2><p>Student in New York</p><button class="likebutton" type="button"><i class="fa fa-heart"></i></button><button class="dislikebutton" type="button"><i class="fa fa-times"></i></button></figcaption></figure>'
     
     // add the elements in the 'peopleListItems' array to the HTML's actual peopleList
     peopleList.appendChild(peopleListItems[i]);
