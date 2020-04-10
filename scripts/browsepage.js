@@ -1,9 +1,11 @@
 // html page elements
 const main = document.getElementsByTagName('main')[0];
-const people = main.getElementsByTagName('li');
 const buttons = document.getElementsByTagName('button');
 let peopleList = document.getElementsByTagName('ul')[0];
 let peopleListItems = [];
+
+// disable html-only content if js is enabled
+peopleList.innerHTML = "";
 
 // get unratedPeople from localStorage, to display them
 let unratedPeople = JSON.parse(localStorage.data).filter(person => {
@@ -15,7 +17,7 @@ for (let i = 0; i < unratedPeople.length; i++) {
 
     // make a list item and put it in the 'peopleListItems' array
     peopleListItems.push(document.createElement('li'));
-    peopleListItems[i].innerHTML = '<figure><a href="profile.html"><img src="" alt="profilepicture"></a><figcaption id="' + unratedPeople[i].firstName + '" ><h2>Name</h2><p>Student in New York</p><p>Indie, reggae, pop</p><button class="likebutton" type="button"><i class="fa fa-heart"></i></button><button class="dislikebutton" type="button"><i class="fa fa-times"></i></button></figcaption></figure>'
+    peopleListItems[i].innerHTML = '<figure><a href="profile-' + unratedPeople[i].firstName + '.html"><img src="" alt="profilepicture"></a><figcaption id="' + unratedPeople[i].firstName + '" ><h2>Name</h2><p>Student in New York</p><button class="likebutton" type="button"><i class="fa fa-heart"></i></button><button class="dislikebutton" type="button"><i class="fa fa-times"></i></button></figcaption></figure>'
     
     // add the elements in the 'peopleListItems' array to the HTML's actual peopleList
     peopleList.appendChild(peopleListItems[i]);
@@ -27,8 +29,7 @@ for (let i = 0; i < unratedPeople.length; i++) {
     
     photo.src = "images/" + unratedPeople[i].photo;
     name.textContent = unratedPeople[i].firstName + ' ' + unratedPeople[i].lastName;
-    desc.textContent = unratedPeople[i].msg;
-    
+    desc.textContent = unratedPeople[i].desc;
 }
 
 // function that gets executed when you press a (dis)like button

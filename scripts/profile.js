@@ -1,30 +1,29 @@
 // html page elements
-const dislikeButton = document.querySelectorAll('.dislikebutton')[0];
-const likeButton = document.querySelectorAll('.likebutton')[0];
+const main = document.getElementsByTagName("main")[0];
+const buttons = document.getElementsByTagName("button");
 
-// when you press the (dis)like button
-function dislikePerson() {
-let node = event.target;
-    let id = node.dataset.id;
-
-    let res = new XMLHttpRequest();
-    res.open('DELETE', '/' + id);
-    res.onload = onload;
-    res.send();
-
-    function onload() {
-        if (res.status !== 200) {
-            throw new Error('Could not delete!');
-        }
+// function that gets executed when you press a (dis)like button
+function ratePerson(e) {
+    console.log(e)
+    // update the currentData
+    const currentData = JSON.parse(localStorage.data);
+    const clickedUser = currentData.find(person => {
+        return person.firstName == main.id;
+    });
+    
+    if (e.target.classList.contains("fa-heart") || e.target.classList.contains("likebutton")) {
+        clickedUser.liked = true;
+    } else {
+        clickedUser.liked = false;
     }
+    
+    // put the updated currentData in localStorage
+    localStorage.setItem('data', JSON.stringify(currentData));
 
-    window.location = '/';
+    window.location = "index.html";
 }
 
-function likePerson() {
-    window.location = '/';
+// eventlisteners for (dis)like buttons
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', ratePerson);
 }
-
-// eventlisteners
-dislikeButton.addEventListener('click', dislikePerson);
-likeButton.addEventListener('click', likePerson);
