@@ -6,7 +6,6 @@ header {
     padding-top: 10px;
 }
 
-
 /* main: list with chats (liked people) */
 main section:nth-of-type(2) ul {
     opacity: .5;
@@ -65,49 +64,15 @@ main figure > button {
 
 /* footer at the end of the liked list, when there are no more people to display */
 footer {
-    padding: 5px 20px;
     color: rgba(0, 0, 0, .7);
-    margin-top: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -10;
 }
 
-
-/* bottom nav */
-nav > img:first-of-type {
-    display: none;
-}
-
-nav {
-    width: 100%;
-    height: 60px;
-    display: block;
-    background-color: #ffffff;
-    position: fixed;
-    bottom: 0;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.0);
-}
-
-nav ul {
-    margin: 0 auto;
-    width: 95vw;
-    height: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    font-size: .7em;
-    line-height: 2.2em;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-}
-
-nav img {
-    margin: 7px auto 0 auto;
-    width: 20px;
-    opacity: .33;
-    display: block;
-}
-
+/* highlight this page on navbar */
 nav ul > li:last-of-type > a {
     color: rgb(0, 0, 0, .9);
     font-family: 'Roboto Bold', sans-serif;
@@ -115,4 +80,31 @@ nav ul > li:last-of-type > a {
 
 nav ul > li:last-of-type > a > img {
     opacity: 1;
+}
+
+/* -------------------------------- desktop -------------------------------- */
+@media only screen and (min-width: 800px) {
+    body {
+        padding: 30px;
+    }
+
+    header {
+        margin-top: 50px;
+        margin-bottom: 10px;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    main {
+        max-width: 800px;
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 15px;
+        background-color: #FFFFFF;
+        padding: 20px;
+        border-radius: 17px;
+        box-shadow: 0 5px 15px 2px #d6d6d6;
+    }
 }

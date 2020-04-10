@@ -12,15 +12,15 @@ class Person{
     }
 }
 
-let Olivia = new Person('Olivia', 'Delroy', '24', '001', 'girl.jpeg', `I love all of the bands in your...`, true, true);
-let Kayla = new Person('Kayla', 'Solomon', '25', '002', 'girl1.jpeg', `What's up :-)`, true, null);
-let Nadia = new Person('Nadia', 'Williams', '23', '003', 'girl2.jpeg', `lol ikr`, null, true);
-let Eve = new Person('Eve', 'Johnson', '24', '004', 'girl3.jpeg', `Are you going to DLDK this year?`, true, null);
-let Abby = new Person('Abby', 'Watts', '25', '005', 'girl4.jpeg', `Yeah, saw them live 3 weeks ago.`, null, false);
+let Olivia = new Person('Olivia', 'Delroy', '24', '001', 'girl.jpeg', `I love all of the bands in your...`, null, null);
+let Kayla = new Person('Kayla', 'Solomon', '25', '002', 'girl1.jpeg', `What's up :-)`, null, null);
+let Nadia = new Person('Nadia', 'Williams', '23', '003', 'girl2.jpeg', `lol ikr`, null, null);
+let Eve = new Person('Eve', 'Johnson', '24', '004', 'girl3.jpeg', `Are you going to DLDK this year?`, null, null);
+let Abby = new Person('Abby', 'Watts', '25', '005', 'girl4.jpeg', `Yeah, saw them live 3 weeks ago.`, null, null);
 let defaultData = [Olivia, Kayla, Nadia, Eve, Abby];
 
-// store default userdata in localStorage:
-localStorage.setItem('data', JSON.stringify(defaultData));
+// (re)store default userdata in localStorage:
+// localStorage.setItem('data', JSON.stringify(defaultData));
 
 // get myLikes from localStorage, divide them in matching and pending
 let data = JSON.parse(localStorage.data);
