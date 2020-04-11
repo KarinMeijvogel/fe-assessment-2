@@ -12,9 +12,9 @@ class Person{
     }
 }
 
-let Olivia = new Person("Olivia", "Delroy", "24", "Hi, my name is Olivia. I'm a 24 year old student from London. Let's talk!", "girl.jpeg", `I love all of the bands in your...`, null, true);
-let Kayla = new Person("Kayla", "Solomon", "25", "Hi, my name is Kayla. I'm a 25 year old student from London. Let's talk!", "girl1.jpeg", `What's up :-)`, null, true);
-let Nadia = new Person("Nadia", "Williams", "23", "Hi, my name is Nadia. I'm a 23 year old student from London. Let's talk!", "girl2.jpeg", `lol ikr`, null, true);
+let Olivia = new Person("Olivia", "Delroy", "24", "Hi, my name is Olivia. I'm a 24 year old student from London. Let's talk!", "girl.jpeg", `I love all of the bands in your...`, null, null);
+let Kayla = new Person("Kayla", "Solomon", "25", "Hi, my name is Kayla. I'm a 25 year old student from London. Let's talk!", "girl1.jpeg", `What's up :-)`, null, null);
+let Nadia = new Person("Nadia", "Williams", "23", "Hi, my name is Nadia. I'm a 23 year old student from London. Let's talk!", "girl2.jpeg", `lol ikr`, null, null);
 let Eve = new Person("Eve", "Johnson", "24", "Hi, my name is Eve. I'm a 24 year old student from London. Let's talk!", "girl3.jpeg", `Are you going to DLDK this year?`, null, true);
 let Abby = new Person("Abby", "Watts", "25", "Hi, my name is Abby. I'm a 25 year old student from London. Let's talk!", "girl4.jpeg", `Yeah, saw them live 3 weeks ago.`, null, true);
 let defaultData = [Olivia, Kayla, Nadia, Eve, Abby];

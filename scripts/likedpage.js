@@ -1,4 +1,4 @@
-// get matches from localStorage
+// get myLikes (all likes) and matches from localStorage
 let matches = JSON.parse(localStorage.data).filter(person => {
     return person.liked == true && person.likedMe == true;
 });
@@ -21,10 +21,10 @@ if (matches.length == 0) {
 
 // display all my matches on the matches page
 for (let i = 0; i < matches.length; i++) {
-
+    
     // make a list item and put it in the "clItems" array
     chatList.innerHTML += "<li><figure data-id='" + matches[i].firstName + "'><form action='' method='post'><button><img src='' alt='profilepicture'></button><button>x</button></form><figcaption><h4>Username</h4><p>Message</p></figcaption></figure></li>"
-
+    
     // give every chat the right details
     const photo = chatList.getElementsByTagName("img")[i];
     const name = chatList.getElementsByTagName("h4")[i];
@@ -45,7 +45,7 @@ function dislike(e) {
     });
     
     clickedUser.liked = false;
-
+    
     // put the updated currentData in localStorage
     localStorage.setItem("data", JSON.stringify(currentData));
     location.reload();
@@ -55,3 +55,20 @@ function dislike(e) {
 for (i = 0; i < removeButtons.length; i++) {
     removeButtons[i].addEventListener("click", dislike)
 }
+
+// after 3 seconds, the latest user i've liked also liked me! (match effect)
+function newMatch(){
+    // update the currentData
+    const currentData = JSON.parse(localStorage.data);
+    const newMatch = currentData.find(person => {
+        return person.liked === true && person.likedMe === null;
+    });
+    
+    newMatch.likedMe = true;
+
+    // put the updated currentData in localStorage
+    localStorage.setItem("data", JSON.stringify(currentData));
+    location.reload();
+}
+
+setTimeout(newMatch, 3000);
