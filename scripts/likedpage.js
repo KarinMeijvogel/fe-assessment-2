@@ -43,7 +43,6 @@ for (let i = 0; i < matches.length; i++) {
     }
 }
 
-
 // functions -----------------------------------------------------------------------------------------------------------------
 // function that gets executed to delete someone from my matches
 function dislike(e) {
