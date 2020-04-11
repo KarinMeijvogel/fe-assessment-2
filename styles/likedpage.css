@@ -7,15 +7,6 @@ header {
 }
 
 /* main: list with chats (liked people) */
-main section:last-of-type ul {
-    opacity: .5;
-}
-
-main section:last-of-type figure img {
-    width: 35px;
-    height: 35px;
-}
-
 main ul {
     list-style: none;
     padding-bottom: 25px;
@@ -79,6 +70,16 @@ nav ul > li:last-of-type > a {
 
 nav ul > li:last-of-type > a > img {
     opacity: 1;
+}
+
+.notification {
+    position: absolute;
+    bottom: 50%;
+    right: 30px;
+    width: 11px;
+    height: 11px;
+    background: rgb(69, 196, 80);
+    border-radius: 100%;
 }
 
 /* -------------------------------- desktop -------------------------------- */
