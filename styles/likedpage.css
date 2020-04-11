@@ -7,6 +7,10 @@ header {
 }
 
 /* main: list with chats (liked people) */
+main {
+    margin-top: 10px;
+}
+
 main ul {
     list-style: none;
     padding-bottom: 25px;
