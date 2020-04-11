@@ -16,12 +16,14 @@ main {
 main > ul {
     margin-top: 10px;
     height: 90%;
+    width: 100%;
     position: relative;
 }
 
 main > ul > li {
     position: absolute;
     height: 100%;
+    width: 100%;
     border-radius: 17px;
     background: #fff;   
 }
@@ -32,6 +34,7 @@ main > ul > li:last-of-type {
 
 main > ul figure {
     height: 100%;
+    width: 100%;
 }
 
 main > ul figure img {
