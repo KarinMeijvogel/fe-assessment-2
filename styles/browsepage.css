@@ -77,15 +77,10 @@ main > ul figure > figcaption button:active {
     transition-duration: .2s;
 }
 
-main > ul figure > figcaption > button:nth-of-type(1) {
+main > ul figure > figcaption form:nth-of-type(1) button {
     margin-right: 65px;
 }
 
-
-main > ul figure > figcaption > button:nth-of-type(1):active {
-    transition-delay: 0s;
-    transition-duration: .2s;
-}
 
 /* when there are no more people to display, screen becomes empty */
 main > li.invisible {
@@ -123,6 +118,15 @@ input[type=submit] {
     border-radius: 25px;
     background-image: linear-gradient(to bottom right, rgb(216, 174, 255), #FF9699);
     border: none;
+}
+
+footer {
+    color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -10;
 }
 
 /* highlight this page on navbar */
