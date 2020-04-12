@@ -1,19 +1,19 @@
 @import "general.css";
 
+body {
+    padding: 0;
+}
+
 /* header with page title */
 header {
-    padding: 0 0 0 30px;
-    padding-top: 30px;
+    padding: 30px 0 0 30px;
 }
 
 /* main: list with chats (liked people) */
-main {
-    margin-top: 10px;
-}
-
 main ul {
     list-style: none;
-    padding-bottom: 25px;
+    background-color: #FFF;
+    padding-bottom: 0;
 }
 
 main h2 {
@@ -25,6 +25,10 @@ main ul > li {
     padding: 20px;
     background: #fff;
     border-bottom: .5px solid rgba(0, 0, 0, .2);
+}
+
+main ul > li:last-of-type {
+    border-bottom: none;
 }
 
 main figure {
@@ -74,27 +78,22 @@ nav ul > li:last-of-type > a > img {
 
 /* -------------------------------- desktop -------------------------------- */
 @media only screen and (min-width: 800px) {
-    body {
-        padding: 30px;
-    }
-
     header {
-        margin-top: 50px;
-        margin-bottom: 10px;
-        height: 100%;
-        width: 100%;
-        text-align: center;
         padding: 0;
     }
 
-    main {
-        max-width: 800px;
-        width: 80%;
-        margin: 20px auto;
-        border-radius: 15px;
-        background-color: #FFFFFF;
-        padding: 20px;
-        border-radius: 17px;
+    main ul {
+        border-radius: 15px 15px 15px 15px;
         box-shadow: 0 5px 15px 2px #d6d6d6;
+        padding-bottom: 20px;
+    }
+
+    main ul li {
+        border-radius: 15px 15px 0 0;
+        border-color: rgba(0, 0, 0, .05);
+    }
+
+    main ul li:last-of-type {
+        padding-bottom: 0;
     }
 }

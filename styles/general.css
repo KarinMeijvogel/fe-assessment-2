@@ -6,6 +6,7 @@
 
 body {
     background: rgb(247, 247, 247);
+    padding: 30px;
     font-size: 16px;
     font-family: 'Gotham Pro light', sans-serif;
     line-height: 1.45em;
@@ -39,6 +40,10 @@ button {
     outline: none;
     border: none;
     background: #FFFFFF;
+}
+
+header { 
+    margin-bottom: 10px;
 }
 
 img {
@@ -117,7 +122,28 @@ nav ul img {
     display: block;
 }
 
+/* -------------------------------- desktop -------------------------------- */
 @media only screen and (min-width: 800px) {
+    body {
+        padding: 0;
+        overflow-x:hidden;
+    }
+
+    header {
+        margin-top: 75px;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    main {
+        max-width: 800px;
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+
     /* bottom nav */
     nav > img:first-of-type {
         width: 150px;

@@ -42,7 +42,7 @@ for (let i = 0; i < matches.length; i++) {
 
     // show only notifications of unseen matches
     if (matches[i].newMatch == false) {
-        notification.classList.add("invisible")
+        notification.classList.add("invisible");
     }
 }
 

@@ -1,21 +1,11 @@
 @import "general.css";
 
-body {
-    padding: 30px;
-    overflow-x: hidden;
-}
-
 main {
-    margin: 0 auto;
-    max-width: 1150px;
-    width: 100%;
     height: calc(100vh - 60px - 60px); /* viewport height - nav height - body padding */
-    overflow: hidden;
 }
 
 /* browse page, people cards (click for detail, like or dislike */
 main > ul {
-    margin-top: 10px;
     height: 90%;
     width: 100%;
     position: relative;
@@ -147,23 +137,8 @@ nav ul > li:nth-of-type(2) > a > img {
 
 /* -------------------------------- desktop -------------------------------- */
 @media only screen and (min-width: 800px) {
-    header {
-        margin-top: 50px;
-        margin-bottom: 10px;
-        width: 100%;
-        text-align: center;
-    }
-
-    main {
-        max-width: 800px;
-        width: 80%;
-        height: 80vh;
-        margin: 0 auto;
-        border-radius: 15px;
-    }
-
     main > ul {
-        margin-top: 10px;
+        margin-top: 0px;
     }
 
     .notification {
