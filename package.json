@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KarinMeijvogel/frontend2.git"
+    "url": "git+https://github.com/KarinMeijvogel/fe-assessment-2.git"
   },
   "keywords": [
     "frontend"
@@ -16,7 +16,7 @@
   "author": "karinmeijvogel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KarinMeijvogel/frontend2/issues"
+    "url": "https://github.com/KarinMeijvogel/fe-assessment-2/issues"
   },
-  "homepage": "https://github.com/KarinMeijvogel/frontend2#readme"
+  "homepage": "https://github.com/KarinMeijvogel/fe-assessment-2#readme"
 }
