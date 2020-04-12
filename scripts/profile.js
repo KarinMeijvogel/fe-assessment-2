@@ -14,6 +14,9 @@ function ratePerson(e) {
     
     if (e.target.classList.contains("fa-heart") || e.target.classList.contains("likebutton")) {
         clickedUser.liked = true;
+        if (clickedUser.likedMe === true) {
+            localStorage.setItem("newMatches", true);
+        }
     } else {
         clickedUser.liked = false;
     }
