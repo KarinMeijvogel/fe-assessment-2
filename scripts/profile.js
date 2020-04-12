@@ -2,12 +2,13 @@
 const main = document.getElementsByTagName("main")[0];
 const buttons = document.getElementsByTagName("button");
 
+// load data from localStorage
+const data = JSON.parse(localStorage.data);
+
 // function that gets executed when you press a (dis)like button
 function ratePerson(e) {
-    console.log(e)
-    // update the currentData
-    const currentData = JSON.parse(localStorage.data);
-    const clickedUser = currentData.find(person => {
+    // update the data
+    const clickedUser = data.find(person => {
         return person.firstName == main.id;
     });
     
@@ -17,9 +18,8 @@ function ratePerson(e) {
         clickedUser.liked = false;
     }
     
-    // put the updated currentData in localStorage
-    localStorage.setItem('data', JSON.stringify(currentData));
-
+    // put the updated data in localStorage
+    localStorage.setItem('data', JSON.stringify(data));
     window.location = "index.html";
 }
 

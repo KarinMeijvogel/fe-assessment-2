@@ -2,6 +2,7 @@
 
 body {
     padding: 30px;
+    overflow-x: hidden;
 }
 
 main {
@@ -138,6 +139,11 @@ nav ul > li:nth-of-type(2) > a > img {
     opacity: .9;
 }
 
+.notification {
+    right: 39px;
+    bottom: 40px;
+    animation: appear .5s forwards;
+}
 
 /* -------------------------------- desktop -------------------------------- */
 @media only screen and (min-width: 800px) {
@@ -159,4 +165,9 @@ nav ul > li:nth-of-type(2) > a > img {
     main > ul {
         margin-top: 10px;
     }
+
+    .notification {
+        right: 40px;
+        top: 25px;
+    }    
 }

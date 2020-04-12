@@ -1,15 +1,22 @@
 // html page elements
 const main = document.getElementsByTagName('main')[0];
 const buttons = document.getElementsByTagName('button');
-let peopleList = document.getElementsByTagName('ul')[0];
+const peopleList = document.getElementsByTagName('ul')[0];
+const notification = document.querySelectorAll('.notification')[0];
 
 // disable html-only content if js is enabled
 peopleList.innerHTML = "";
 
-// get unratedPeople from localStorage, to display them
-let unratedPeople = JSON.parse(localStorage.data).filter(person => {
+// load data from localStorage
+const data = JSON.parse(localStorage.data);
+const unratedPeople = JSON.parse(localStorage.data).filter(person => {
     return person.liked == null;
 });
+
+// display 'new matches' notification in navbar
+if (!localStorage.newMatches) {
+    notification.classList.add("invisible")
+}
 
 // display every unrated person on discover page
 for (let i = 0; i < unratedPeople.length; i++) {
@@ -34,20 +41,22 @@ for (let i = 0; i < unratedPeople.length; i++) {
 function ratePerson(e) {
     e.preventDefault();
 
-    // update the currentData
-    const currentData = JSON.parse(localStorage.data);
-    const clickedUser = currentData.find(person => {
+    // update the data
+    const clickedUser = data.find(person => {
         return person.firstName == this.closest('figure').dataset.id;
     });
     
     if (e.target.classList.contains("fa-heart") || e.target.classList.contains("likebutton")) {
         clickedUser.liked = true;
+        if (clickedUser.likedMe === true) {
+            localStorage.setItem("newMatches", true);
+        }
     } else {
         clickedUser.liked = false;
     }
     
-    // put the updated currentData in localStorage
-    localStorage.setItem('data', JSON.stringify(currentData));
+    // put the updated data in localStorage
+    localStorage.setItem('data', JSON.stringify(data));
     location.reload();
 }
 

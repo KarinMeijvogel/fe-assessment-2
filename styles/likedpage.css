@@ -24,7 +24,7 @@ main h2 {
 main ul > li {
     padding: 20px;
     background: #fff;
-    border-bottom: .5px solid rgba(0, 0, 0, .2)
+    border-bottom: .5px solid rgba(0, 0, 0, .2);
 }
 
 main figure {
@@ -52,10 +52,6 @@ main figure form button:last-of-type {
     background: none;
 }
 
-.invisible {
-    display: none;
-}
-
 /* footer at the end of the liked list, when there are no more people to display */
 footer {
     color: rgba(0, 0, 0, .7);
@@ -74,16 +70,6 @@ nav ul > li:last-of-type > a {
 
 nav ul > li:last-of-type > a > img {
     opacity: 1;
-}
-
-.notification {
-    position: absolute;
-    bottom: 50%;
-    right: 30px;
-    width: 11px;
-    height: 11px;
-    background: rgb(69, 196, 80);
-    border-radius: 100%;
 }
 
 /* -------------------------------- desktop -------------------------------- */

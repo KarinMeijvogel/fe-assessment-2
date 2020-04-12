@@ -57,6 +57,28 @@ ul {
     color: #797EF6;
 }
 
+.invisible {
+    display: none;
+}
+
+.notification {
+    position: absolute;
+    bottom: 50%;
+    right: 30px;
+    width: 11px;
+    height: 11px;
+    background: rgb(69, 196, 80);
+    border-radius: 100%;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
 /* navigation bar */
 nav > img:first-of-type {
     display: none;
