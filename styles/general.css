@@ -144,12 +144,12 @@ nav ul img {
         border-radius: 15px;
     }
 
-    /* bottom nav */
+    /* nav */
     nav > img:first-of-type {
         width: 150px;
         align-self: center;
         display: block;
-        margin: 0;
+        margin: 0 -30px;
         opacity: 1;
     }
 

@@ -1,9 +1,13 @@
 @import "general.css";
 
 /* profile */
+body {
+    padding: 0;
+}
+
 main {
     width: 100%;
-    padding: 25px;
+    padding: 0 25px;
 }
 
 /* photo */
@@ -82,16 +86,12 @@ main > button:first-of-type {
 }
 
 /* desktop */
-@media only screen and (min-width: 900px) {
-    body {
-        padding: 20px;
-    }
+@media only screen and (min-width: 800px) {
     main {
         max-width: 1150px;
         width: calc(100% - 400px - 35px);
-        margin: 10% 400px;
+        margin: 7% 400px;
         position: relative;
-        padding: 0 25px;
         box-shadow: 0 5px 15px 2px #d6d6d6;
     }
 
@@ -114,12 +114,5 @@ main > button:first-of-type {
 
     main > ul {
         padding-bottom: 30px;
-    }
-}
-
-@media only screen and (min-width: 1400px) {
-    main {
-        width: calc(100% - 30% - 35px);
-        margin: 10% auto auto 30%;
     }
 }
