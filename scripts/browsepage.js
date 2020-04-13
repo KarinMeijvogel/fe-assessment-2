@@ -1,40 +1,53 @@
-// html page elements
+/* GLOBAL VARIABLES (FOR HTML ELEMENTS) */
 const main = document.getElementsByTagName('main')[0];
 const buttons = document.getElementsByTagName('button');
 const peopleList = document.getElementsByTagName('ul')[0];
 const notification = document.querySelectorAll('.notification')[0];
 
-// disable html-only content if js is enabled
-peopleList.innerHTML = "";
-
-// load data from localStorage
+// get unratedPeople from localStorage, to display them
 const data = JSON.parse(localStorage.data);
 const unratedPeople = JSON.parse(localStorage.data).filter(person => {
     return person.liked == null;
 });
 
-// display 'new matches' notification in navbar
-if (!localStorage.newMatches) {
-    notification.classList.add("invisible")
+/* ON PAGE LOAD */
+// display data from localStorage (unrated people) on the page
+window.onload = displayContent();
+
+/* EVENTLISTENERS */
+// register (dis)like
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', ratePerson);
 }
 
-// display every unrated person on discover page
-for (let i = 0; i < unratedPeople.length; i++) {
-    // make li-elements for every likedPerson
-    peopleList.innerHTML += '<li><figure><a><img alt="profilepicture"></a><figcaption><h2></h2><p></p><form action="" method="post"><button class="likebutton"><i class="fa fa-heart"></i></button></form><form action="" method="post"><button class="dislikebutton"><i class="fa fa-times"></i></button></form></figcaption></figure></li>'
+/* FUNCTION DECLARATIONS */
+function displayContent() {
+    // disable html-only content if js is enabled
+    peopleList.innerHTML = "";
 
-    // give every chat the right details
-    const figure = peopleList.getElementsByTagName('figure')[i];
-    const linkToProfile = peopleList.getElementsByTagName('a')[i];
-    const photo = peopleList.getElementsByTagName('img')[i];
-    const name = peopleList.getElementsByTagName('h2')[i];
-    const desc = peopleList.getElementsByTagName('p')[i];
-    
-    figure.dataset.id = unratedPeople[i].firstName;
-    linkToProfile.href = 'profile-' + unratedPeople[i].firstName.toLowerCase() + '.html';
-    photo.src = "images/" + unratedPeople[i].photo;
-    name.textContent = unratedPeople[i].firstName + ' ' + unratedPeople[i].lastName + ', ' + unratedPeople[i].age;
-    desc.textContent = unratedPeople[i].desc;
+    // display 'new matches' notification in navbar
+    if (!localStorage.newMatches) {
+        notification.classList.add("invisible")
+    }
+
+    // display every unrated person on discover page
+    for (let i = 0; i < unratedPeople.length; i++) {
+        // make li-elements for every likedPerson
+        peopleList.innerHTML += '<li><figure><a><img alt="profilepicture"></a><figcaption><h2></h2><p></p><form action="" method="post"><button class="likebutton"><i class="fa fa-heart"></i></button></form><form action="" method="post"><button class="dislikebutton"><i class="fa fa-times"></i></button></form></figcaption></figure></li>'
+
+        // give every chat the right details
+        const figure = peopleList.getElementsByTagName('figure')[i];
+        const linkToProfile = peopleList.getElementsByTagName('a')[i];
+        const photo = peopleList.getElementsByTagName('img')[i];
+        const name = peopleList.getElementsByTagName('h2')[i];
+        const desc = peopleList.getElementsByTagName('p')[i];
+        
+        figure.dataset.id = unratedPeople[i].firstName;
+        linkToProfile.href = 'profile-' + unratedPeople[i].firstName.toLowerCase() + '.html';
+        photo.src = "images/" + unratedPeople[i].photo;
+        name.textContent = unratedPeople[i].firstName + ' ' + unratedPeople[i].lastName + ', ' + unratedPeople[i].age;
+        desc.textContent = unratedPeople[i].desc;
+    }
 }
 
 // function that gets executed when you press a (dis)like button
@@ -58,9 +71,4 @@ function ratePerson(e) {
     // put the updated data in localStorage
     localStorage.setItem('data', JSON.stringify(data));
     location.reload();
-}
-
-// eventlisteners for (dis)like buttons
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', ratePerson);
 }
