@@ -40,7 +40,7 @@ function displayContent() {
         li.appendChild(fig);
 
         const link = document.createElement("a");
-        link.href = "profile-" + unratedPeople[i].firstName + ".html";
+        link.href = "profile-" + unratedPeople[i].firstName.toLowerCase() + ".html";
         fig.appendChild(link);
 
         const pic = document.createElement("img");
