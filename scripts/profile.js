@@ -1,32 +1,37 @@
 /* GLOBAL VARIABLES (FOR HTML ELEMENTS) */
 const main = document.getElementsByTagName("main")[0];
-const buttons = document.getElementsByTagName("button");
+const likeButtons = document.querySelectorAll(".likebutton");
+const dislikeButtons = document.querySelectorAll(".dislikebutton");
 
 // load data from localStorage
 const data = JSON.parse(localStorage.data);
+const rate = rating();
 
 /* EVENTLISTENERS */
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', ratePerson);
+for (let i = 0; i < likeButtons.length; i++) {
+    likeButtons[i].addEventListener('click', rate.like);
+    dislikeButtons[i].addEventListener('click', rate.dislike);
 }
 
 /* FUNCTION DECLARATIONS */
-function ratePerson(e) {
-    // update the data
-    const clickedUser = data.find(person => {
+function rating() {
+    const ratedUser = data.find(person => {
         return person.firstName == main.id;
     });
     
-    if (e.target.classList.contains("fa-heart") || e.target.classList.contains("likebutton")) {
-        clickedUser.liked = true;
-        if (clickedUser.likedMe === true) {
-            localStorage.setItem("newMatches", true);
+    return {
+        like: function() {
+            ratedUser.liked = true;
+            updateStorage();
+        },
+        dislike: function() {
+            ratedUser.liked = false;
+            updateStorage();
         }
-    } else {
-        clickedUser.liked = false;
-    }
-    
-    // put the updated data in localStorage
+    };
+}
+
+function updateStorage() {
     localStorage.setItem('data', JSON.stringify(data));
     window.location = "index.html";
 }
