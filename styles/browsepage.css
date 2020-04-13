@@ -19,7 +19,7 @@ main > ul > li {
     background: #fff;   
 }
 
-main > ul > li:last-of-type {
+main > ul > li:first-of-type {
     box-shadow: 0 5px 15px 2px #d6d6d6;
 }
 
@@ -133,6 +133,19 @@ nav ul > li:nth-of-type(2) > a > img {
     right: 39px;
     bottom: 40px;
     animation: appear .5s forwards;
+}
+
+/* animation on (dis)like */
+li.moveleft {
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: .7s;
+}
+
+li.moveright {
+    transform: translateX(50%);
+    opacity: 0;
+    transition: .7s;
 }
 
 /* -------------------------------- desktop -------------------------------- */

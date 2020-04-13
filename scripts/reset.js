@@ -22,3 +22,4 @@ let defaultData = [Olivia, Kayla, Nadia, Eve, Abby];
 
 // (re)store default userdata in localStorage:
 localStorage.setItem("data", JSON.stringify(defaultData));
+localStorage.removeItem("newMatches");

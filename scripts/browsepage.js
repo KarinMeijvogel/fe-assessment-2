@@ -96,14 +96,20 @@ function ratePerson(e) {
     
     if (e.target.classList.contains("fa-heart") || e.target.classList.contains("likebutton")) {
         clickedUser.liked = true;
+        e.target.closest('li').classList.add("moveleft");
         if (clickedUser.likedMe === true) {
             localStorage.setItem("newMatches", true);
         }
     } else {
         clickedUser.liked = false;
+        e.target.closest('li').classList.add("moveright");
     }
     
     // put the updated data in localStorage
     localStorage.setItem('data', JSON.stringify(data));
-    location.reload();
+
+
+    setTimeout(() => {
+        location.reload();
+    }, 700)
 }

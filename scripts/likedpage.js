@@ -8,7 +8,7 @@ const chatListItems = document.getElementsByTagName("li");
 // get data and matches from localStorage, to display them
 const data = JSON.parse(localStorage.data);
 const matches = JSON.parse(localStorage.data).filter(person => {
-    return person.liked == true && person.likedMe == true;
+    return person.liked === true && person.likedMe === true;
 });
 
 /* ON PAGE LOAD */
