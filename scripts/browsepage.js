@@ -30,23 +30,58 @@ function displayContent() {
         notification.classList.add("invisible")
     }
 
-    // display every unrated person on discover page
+    // create a li-element for every person and fill it with their details
     for (let i = 0; i < unratedPeople.length; i++) {
-        // make li-elements for every likedPerson
-        peopleList.innerHTML += '<li><figure><a><img alt="profilepicture"></a><figcaption><h2></h2><p></p><form action="" method="post"><button class="likebutton"><i class="fa fa-heart"></i></button></form><form action="" method="post"><button class="dislikebutton"><i class="fa fa-times"></i></button></form></figcaption></figure></li>'
+        const li = document.createElement("li");
+        peopleList.appendChild(li);
 
-        // give every chat the right details
-        const figure = peopleList.getElementsByTagName('figure')[i];
-        const linkToProfile = peopleList.getElementsByTagName('a')[i];
-        const photo = peopleList.getElementsByTagName('img')[i];
-        const name = peopleList.getElementsByTagName('h2')[i];
-        const desc = peopleList.getElementsByTagName('p')[i];
-        
-        figure.dataset.id = unratedPeople[i].firstName;
-        linkToProfile.href = 'profile-' + unratedPeople[i].firstName.toLowerCase() + '.html';
-        photo.src = "images/" + unratedPeople[i].photo;
-        name.textContent = unratedPeople[i].firstName + ' ' + unratedPeople[i].lastName + ', ' + unratedPeople[i].age;
+        const fig = document.createElement("figure");
+        fig.dataset.id = unratedPeople[i].firstName;
+        li.appendChild(fig);
+
+        const link = document.createElement("a");
+        link.href = "profile-" + unratedPeople[i].firstName + ".html";
+        fig.appendChild(link);
+
+        const pic = document.createElement("img");
+        pic.src = "images/" + unratedPeople[i].photo;
+        pic.alt = "profile picture of " + unratedPeople[i].firstName;
+        link.appendChild(pic);
+
+        const figcaption = document.createElement("figcaption");
+        fig.appendChild(figcaption);
+
+        const name = document.createElement("h2");
+        name.textContent = unratedPeople[i].firstName + ' ' + unratedPeople[i].lastName;
+        figcaption.appendChild(name);
+
+        const desc = document.createElement("p");
         desc.textContent = unratedPeople[i].desc;
+        figcaption.appendChild(desc);
+
+        const likeForm = document.createElement("form");
+        figcaption.appendChild(likeForm);
+
+        const likeButton = document.createElement("button");
+        likeButton.classList.add("likebutton");
+        likeForm.appendChild(likeButton);
+
+        const likeIcon = document.createElement("i");
+        likeIcon.classList.add("fa");
+        likeIcon.classList.add("fa-heart");
+        likeButton.appendChild(likeIcon);
+
+        const dislikeForm = document.createElement("form");
+        figcaption.appendChild(dislikeForm);
+
+        const dislikeButton = document.createElement("button");
+        dislikeButton.classList.add("dislikebutton");
+        dislikeForm.appendChild(dislikeButton);
+
+        const dislikeIcon = document.createElement("i");
+        dislikeIcon.classList.add("fa");
+        dislikeIcon.classList.add("fa-times");
+        dislikeButton.appendChild(dislikeIcon);
     }
 }
 

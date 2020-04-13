@@ -44,22 +44,45 @@ function displayContent() {
         footerText.textContent = "No people in your liked list yet.";
     }
     
-    // display all my matches on the matches page
+    // create a li-element for every match and fill it with their details
     for (let i = 0; i < matches.length; i++) {
-        
-        // make a list item and put it in the "clItems" array
-        chatList.innerHTML += "<li><figure data-id='" + matches[i].firstName + "'><form action='' method='post'><button><img src='' alt='profilepicture'></button><button>x</button></form><div class='notification'></div><figcaption><h4>Username</h4><p>Message</p></figcaption></figure></li>"
-        
-        // give every chat the right details
-        const photo = chatList.getElementsByTagName("img")[i];
-        const name = chatList.getElementsByTagName("h4")[i];
-        const msg = chatList.getElementsByTagName("p")[i];
-        const notification = chatList.querySelectorAll(".notification")[i];
-        
-        photo.src = "images/" + matches[i].photo;
-        name.textContent = matches[i].firstName + " " + matches[i].lastName;
+        const li = document.createElement("li");
+        chatList.appendChild(li);
+
+        const fig = document.createElement("figure");
+        fig.dataset.id = matches[i].firstName;
+        li.appendChild(fig);
+
+        const deleteForm = document.createElement("form");
+        fig.appendChild(deleteForm);
+
+        const deleteImg = document.createElement("button");
+        deleteForm.appendChild(deleteImg);
+
+        const pic = document.createElement("img");
+        pic.src = "images/" + matches[i].photo;
+        pic.alt = "profile picture of " + matches[i].firstName;
+        deleteImg.appendChild(pic);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "x";
+        deleteForm.appendChild(deleteButton);
+
+        const notification = document.createElement("div");
+        notification.classList.add("notification");
+        fig.appendChild(notification);
+
+        const figcaption = document.createElement("figcaption");
+        fig.appendChild(figcaption);
+
+        const name = document.createElement("h4");
+        name.textContent = matches[i].firstName + ' ' + matches[i].lastName;
+        figcaption.appendChild(name);
+
+        const msg = document.createElement("p");
         msg.textContent = matches[i].msg;
-    
+        figcaption.appendChild(msg);
+        
         // show only notifications of unseen matches
         if (matches[i].newMatch == false) {
             notification.classList.add("invisible");

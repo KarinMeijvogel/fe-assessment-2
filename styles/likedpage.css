@@ -48,7 +48,7 @@ main figure > figcaption {
     margin-left: 15px;
 }
 
-main figure form button:last-of-type {
+main figure form button:nth-of-type(2) {
     position: absolute;
     right: 10px;
     line-height: 50px;
