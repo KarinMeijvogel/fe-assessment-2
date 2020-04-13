@@ -81,7 +81,7 @@ button {
     box-shadow: 0 5px 15px 2px #d6d6d6;
 }
 
-main > button:first-of-type {
+main > form:first-of-type button {
     transform: translateX(calc(-100% - 5px));
 }
 

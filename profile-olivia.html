@@ -46,8 +46,17 @@
             </li>
         </ul>
 
-        <button class="likebutton" type="button"><i class="fa fa-heart"></i></button>
-        <button class="dislikebutton" type="button"><i class="fa fa-times"></i></button>
+        <form action="" method="post">
+            <button class="likebutton">
+                <i class="fa fa-heart"></i>
+            </button>
+        </form>
+        <form action="" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="dislikebutton">
+                <i class="fa fa-times"></i>
+            </button>
+        </form>
     </main>
 
     <script src="scripts/profile.js"></script>

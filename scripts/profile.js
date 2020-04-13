@@ -20,11 +20,13 @@ function rating() {
     });
     
     return {
-        like: function() {
+        like: function(e) {
+            e.preventDefault();
             ratedUser.liked = true;
             updateStorage();
         },
-        dislike: function() {
+        dislike: function(e) {
+            e.preventDefault();
             ratedUser.liked = false;
             updateStorage();
         }
